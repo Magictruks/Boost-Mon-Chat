@@ -40,6 +40,10 @@ class UserType extends AbstractType
                 'label' => 'Client',
                 'attr' => ['class' => 'form-control']
             ))
+            ->add('status', null, array(
+                'label' => 'Status',
+                'attr' => ['class' => 'form-check']
+            ))
         ;
     }
 

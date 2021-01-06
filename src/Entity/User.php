@@ -39,6 +39,11 @@ class User implements UserInterface
      */
     private $customer;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $status;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -133,4 +138,16 @@ class User implements UserInterface
     // {
     //     $this->name;
     // }
+
+    public function getStatus(): ?bool
+    {
+        return $this->status;
+    }
+
+    public function setStatus(bool $status): self
+    {
+        $this->status = $status;
+
+        return $this;
+    }
 }

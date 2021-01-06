@@ -30,7 +30,12 @@
 							<td>{{ user.email }}</td>
 							<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
 							<td>
-								{# <span class="badge badge-success">{{ user.status }}</span> #}
+								{% if user.status %}
+									<span class="badge badge-success">Activé</span>
+								{% else %}
+									<span class="badge badge-danger">Désactivé</span>
+								{% endif %}
+								{# <span class="badge badge-danger">{{ user.status ? 'Yes' : 'No' }}</span> #}
 							</td>
 							<td>
 								<a href="{{ path('user_show', {id: user.id}) }}">
