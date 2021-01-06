@@ -23,7 +23,7 @@ class Customer
     private $name;
 
     /**
-     * @ORM\OneToOne(targetEntity=Company::class)
+     * @ORM\ManyToOne(targetEntity=Company::class, inversedBy="customer")
      */
     private $company;
 
@@ -44,6 +44,11 @@ class Customer
         return $this;
     }
 
+    public function __toString()
+    {
+        return $this->name;
+    }
+
     public function getCompany(): ?Company
     {
         return $this->company;
@@ -54,10 +59,5 @@ class Customer
         $this->company = $company;
 
         return $this;
-    }
-
-    public function __toString()
-    {
-        return $this->name;
     }
 }
