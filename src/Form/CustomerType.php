@@ -12,8 +12,14 @@ class CustomerType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('company')
+            ->add('name', null, array(
+                'label' => 'Nom - Prénom',
+                'attr' => ['class' => 'form-control', 'size' => 16]
+            ))
+            ->add('company', null, array(
+                'label' => 'Entreprise',
+                'attr' => ['class' => 'form-control']
+            ))
         ;
     }
 
