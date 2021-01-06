@@ -23,7 +23,7 @@ class Customer
     private $name;
 
     /**
-     * @ORM\OneToOne(targetEntity=Company::class, cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Company::class)
      */
     private $company;
 
@@ -54,5 +54,10 @@ class Customer
         $this->company = $company;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 }

@@ -1,12 +1,39 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
-</html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		<link rel="stylesheet" href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css">
+		<link rel="stylesheet" href="https://unpkg.com/@coreui/icons/css/all.min.css"> {% block stylesheets %}{% endblock %}
+		</head>
+		<body>
+			{% if app.user %}
+
+				{% include "partials/sidebar.html.twig" %}
+				<div class="c-wrapper c-fixed-components">
+					{% include "partials/header.html.twig" %}
+					<div class="c-body">
+						<main class="c-main">
+
+						{% endif %}
+
+						{% block body %}{% endblock %}
+
+						{% if app.user %}
+						</main>
+						<footer class="c-footer">
+							<div>
+								<a href="https://coreui.io">CoreUI</a>
+								&copy; 2020 creativeLabs.</div>
+							<div class="ml-auto">Powered by&nbsp;<a href="https://coreui.io/">CoreUI</a>
+							</div>
+						</footer>
+					</div>
+				{% endif %}
+				<script src="https://unpkg.com/@coreui/coreui/dist/js/coreui.bundle.min.js"></script>
+			</body>
+		</body>
+	</html>

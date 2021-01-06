@@ -35,7 +35,7 @@ class User implements UserInterface
     private $password;
 
     /**
-     * @ORM\OneToOne(targetEntity=Customer::class, cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Customer::class)
      */
     private $customer;
 
@@ -128,4 +128,9 @@ class User implements UserInterface
 
         return $this;
     }
+
+    // public function __toString()
+    // {
+    //     $this->name;
+    // }
 }

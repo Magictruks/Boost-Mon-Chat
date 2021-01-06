@@ -91,4 +91,9 @@ class CompanyController extends AbstractController
 
         return $this->redirectToRoute('company_index');
     }
+
+    public function __toString()
+    {
+        return $this->name;
+    }
 }
