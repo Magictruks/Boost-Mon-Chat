@@ -1,0 +1,14 @@
+{{ form_start(form) }}
+<div class="form-group">
+	{{ form_widget(form) }}
+</div>
+    {% if is_granted('ROLE_ADMIN') %}
+    <div>
+    <h2>eaziof</h2>
+    {{ form_row(form.status) }}
+    </div>
+    {% endif %}
+    
+
+<button class="btn btn-success">{{ button_label|default('Créer') }}</button>
+{{ form_end(form) }}
