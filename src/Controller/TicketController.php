@@ -11,13 +11,20 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  * @Route("/ticket")
  */
 class TicketController extends AbstractController
 {
-    public function __construct(AuthorizationCheckerInterface $auth) {
+    private $urlGenerator;
+    private $auth;
+
+    public function __construct(UrlGeneratorInterface $urlGenerator, AuthorizationCheckerInterface $auth)
+    {
+        $this->urlGenerator = $urlGenerator;
         $this->auth = $auth;
     }
 
@@ -39,6 +46,7 @@ class TicketController extends AbstractController
 
     /**
      * @Route("/archive", name="ticket_archive", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function archive(TicketRepository $ticketRepository): Response
     {
@@ -64,7 +72,8 @@ class TicketController extends AbstractController
             
             $entityManager->flush();
 
-            return $this->redirectToRoute('ticket_index');
+            return $this->redirectToRoute('ticket_email');
+            // return new RedirectResponse($this->urlGenerator->generate(''));
         }
 
         return $this->render('ticket/new.html.twig', [

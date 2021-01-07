@@ -14,11 +14,6 @@
 					<button type="button" class="btn btn-success">Envoyer une demande</button>
 				</a>
 			{% endif %}
-			{% if app.user.roles[0] == 'ROLE_ADMIN' %}
-				<a href="{{ path('ticket_archive') }}">
-					<button type="button" class="btn btn-info">Archive</button>
-				</a>
-			{% endif %}
 		</div>
 
 		<div class="card-body">

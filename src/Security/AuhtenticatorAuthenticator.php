@@ -32,6 +32,7 @@ class AuhtenticatorAuthenticator extends AbstractFormLoginAuthenticator implemen
     private $urlGenerator;
     private $csrfTokenManager;
     private $passwordEncoder;
+    private $auth;
 
     public function __construct(EntityManagerInterface $entityManager, UrlGeneratorInterface $urlGenerator, CsrfTokenManagerInterface $csrfTokenManager, UserPasswordEncoderInterface $passwordEncoder, AuthorizationCheckerInterface $auth)
     {
