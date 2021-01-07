@@ -6,9 +6,22 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class SecurityController extends AbstractController
 {
+    private $urlGenerator;
+    private $auth;
+
+    public function __construct(UrlGeneratorInterface $urlGenerator, AuthorizationCheckerInterface $auth)
+    {
+        $this->urlGenerator = $urlGenerator;
+        $this->auth = $auth;
+    }
+
     /**
      * @Route("/login", name="app_login")
      */
@@ -17,7 +30,9 @@ class SecurityController extends AbstractController
         // if ($this->getUser()) {
         //     return $this->redirectToRoute('target_path');
         // }
-
+            if($this->auth->isGranted('ROLE_USER')) {
+                return new RedirectResponse($this->urlGenerator->generate('dashboard'));
+            }
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
         // last username entered by the user

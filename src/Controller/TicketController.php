@@ -16,6 +16,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  * @Route("/ticket")
+ * @IsGranted("ROLE_ADMIN")
  */
 class TicketController extends AbstractController
 {

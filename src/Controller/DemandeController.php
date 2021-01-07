@@ -75,6 +75,7 @@ class DemandeController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="demande_edit", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function edit(Request $request, Ticket $ticket): Response
     {

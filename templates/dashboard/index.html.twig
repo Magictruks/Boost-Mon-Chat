@@ -29,7 +29,7 @@
                   <div class="card">
                     <div class="card-header bg-danger content-center">
                       <div class="c-icon c-icon-3xl text-white my-4">
-                        <i class="cil-tags"></i>
+                        <i class="cil-audio"></i>
                       </div>
                     </div>
                     <div class="card-body row text-center">
@@ -51,7 +51,37 @@
                     <div class="card-body row text-center">
                       <div class="col">
                         <div class="text-value-xl">{{ inProgressTickets }}</div>
-                        <div class="text-uppercase text-muted small">Tickets en cours</div>
+                        <div class="text-uppercase text-muted small">Demandes en cours</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                  <div class="card">
+                    <div class="card-header bg-success content-center">
+                      <div class="c-icon c-icon-3xl text-white my-4">
+                        <i class="cil-folder-open"></i>
+                      </div>
+                    </div>
+                    <div class="card-body row text-center">
+                      <div class="col">
+                        <div class="text-value-xl">{{ openTickets }}</div>
+                        <div class="text-uppercase text-muted small">Ticket ouvert</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                  <div class="card">
+                    <div class="card-header bg-primary content-center">
+                      <div class="c-icon c-icon-3xl text-white my-4">
+                        <i class="cil-https"></i>
+                      </div>
+                    </div>
+                    <div class="card-body row text-center">
+                      <div class="col">
+                        <div class="text-value-xl">{{ closeTickets }}</div>
+                        <div class="text-uppercase text-muted small">Ticket fermé</div>
                       </div>
                     </div>
                   </div>
