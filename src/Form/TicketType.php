@@ -37,6 +37,7 @@ class TicketType extends AbstractType
                 'Nouveau' => 'new',
                 'En cours' => 'in progress',
                 'Terminé' => 'done',
+                'Archivé' => 'archive',
             ]
             ,
             'expanded' => false,

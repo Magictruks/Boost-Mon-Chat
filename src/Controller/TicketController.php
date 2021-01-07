@@ -20,6 +20,7 @@ class TicketController extends AbstractController
     public function __construct(AuthorizationCheckerInterface $auth) {
         $this->auth = $auth;
     }
+
     /**
      * @Route("/", name="ticket_index", methods={"GET"})
      */
@@ -31,8 +32,18 @@ class TicketController extends AbstractController
             ]);
         }
 
-        return $this->render('ticket/index.html.twig', [
+        return $this->render('ticket/archive.html.twig', [
             'tickets' => $ticketRepository->findBy(['user' => $this->getUser()]),
+        ]);
+    }
+
+    /**
+     * @Route("/archive", name="ticket_archive", methods={"GET"})
+     */
+    public function archive(TicketRepository $ticketRepository): Response
+    {
+        return $this->render('ticket/archive.html.twig', [
+            'tickets' => $ticketRepository->findBy(['status' => 'archive']),
         ]);
     }
 

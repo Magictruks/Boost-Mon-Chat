@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Ticket index
+{% block title %}Ticket Archive
 {% endblock %}
 
 {% block body %}
@@ -8,17 +8,7 @@
 		<div
 			class="card-header d-flex justify-content-between align-items-center">
 			{# <i class="fa fa-align-justify"></i> #}
-			<h1>Table Tickets</h1>
-			{% if app.user.roles[0] == 'ROLE_CLIENT' %}
-				<a href="{{ path('ticket_new') }}">
-					<button type="button" class="btn btn-success">Envoyer une demande</button>
-				</a>
-			{% endif %}
-			{% if app.user.roles[0] == 'ROLE_ADMIN' %}
-				<a href="{{ path('ticket_archive') }}">
-					<button type="button" class="btn btn-info">Archive</button>
-				</a>
-			{% endif %}
+			<h1>Table Tickets - Archive</h1>
 		</div>
 
 		<div class="card-body">
