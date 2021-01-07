@@ -57,6 +57,6 @@ class MailerController extends AbstractController
 
         // return true;
 
-        return new RedirectResponse($this->urlGenerator->generate('ticket_index'));
+        return new RedirectResponse($this->urlGenerator->generate('demande_index'));
     }
 }

@@ -8,6 +8,9 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
+use Symfony\Component\Routing\Matcher\UrlMatcher;
+use Symfony\Component\Routing\RequestContext;
+use Symfony\Component\HttpFoundation\Request;
 
 class TicketType extends AbstractType
 {
@@ -17,6 +20,11 @@ class TicketType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
+        $context = new RequestContext($_SERVER['REQUEST_URI']);
+
+        $isTicket = strpos($context->getBaseUrl(), 'ticket');
+
         $builder
             ->add('label', null, array(
                 'label' => 'Titre',
@@ -29,25 +37,33 @@ class TicketType extends AbstractType
         ;
 
         if ($this->auth->isGranted('ROLE_ADMIN')) {
-        $builder->add('status', ChoiceType::class, array(
-            'label' => 'Status',
-            'attr' => ['class' => 'form-control'],
-            'choices' => 
-            [
-                'Nouveau' => 'new',
-                'En cours' => 'in progress',
-                'Terminé' => 'done',
-                'Archivé' => 'archive',
-            ]
-            ,
-            'expanded' => false,
-            'multiple' => false,
-            'required' => true,
-            ))
-            ->add('user', null, array(
+            $builder->add('user', null, array(
                 'label' => 'Utilisateur',
                 'attr' => ['class' => 'form-control']
             ));
+            }
+
+            if ($isTicket) {
+                $builder->add('isOpen', null, array(
+                    'label' => 'Etat du ticket (ouvert/fermé)',
+                    'attr' => ['class' => 'form-check']
+                ));
+            } else if ($this->auth->isGranted('ROLE_ADMIN') and !$isTicket) {
+                $builder->add('status', ChoiceType::class, array(
+                    'label' => 'Status',
+                    'attr' => ['class' => 'form-control'],
+                    'choices' => 
+                    [
+                        'Nouvelle' => 'new',
+                        'En cours de traitement' => 'in progress',
+                        'Traitée' => 'done',
+                        'Archivé' => 'archive'
+                    ]
+                    ,
+                    'expanded' => false,
+                    'multiple' => false,
+                    'required' => true,
+                    ));
             }
     }
 

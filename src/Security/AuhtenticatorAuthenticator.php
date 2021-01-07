@@ -104,7 +104,7 @@ class AuhtenticatorAuthenticator extends AbstractFormLoginAuthenticator implemen
             return new RedirectResponse($this->urlGenerator->generate('dashboard'));
         }
 
-        return new RedirectResponse($this->urlGenerator->generate('ticket_index'));
+        return new RedirectResponse($this->urlGenerator->generate('demande_index'));
 
         // throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }

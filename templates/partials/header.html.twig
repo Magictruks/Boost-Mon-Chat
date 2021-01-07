@@ -49,7 +49,7 @@
                         <i class="cil-cat"></i>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right pt-0">
-						<div class="dropdown-header bg-light py-2">
+						{# <div class="dropdown-header bg-light py-2">
 							<strong>Account</strong>
 						</div>
 						<a class="dropdown-item" href="#">
@@ -106,16 +106,17 @@
 							<svg class="c-icon mr-2">
 								<use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-lock-locked"></use>
 							</svg>
-							Lock Account</a>
+							Lock Account</a> #}
+							<div class="dropdown-header bg-light py-2">
+							<strong>Settings</strong>
+						</div>
 						<a class="dropdown-item" href="{{ path('app_logout') }}">
-							<svg class="c-icon mr-2">
-								<use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-account-logout"></use>
-							</svg>
+							<i class="cil-account-logout"></i><span> </span>
 							Logout</a>
 					</div>
 				</li>
 			</ul>
-			<div
+			{# <div
 				class="c-subheader px-3">
 				<!-- Breadcrumb-->
 				<ol class="breadcrumb border-0 m-0">
@@ -126,5 +127,5 @@
 					<li class="breadcrumb-item active">Dashboard</li>
 					<!-- Breadcrumb Menu-->
 				</ol>
-			</div>
+			</div> #}
 		</header>

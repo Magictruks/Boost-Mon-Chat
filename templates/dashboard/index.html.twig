@@ -8,13 +8,54 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'D:/turch/Documents/Cours IFA/4 - Framework PHP/eval-symphony-2/src/Controller/DashboardController.php'|file_link(0) }}">src/Controller/DashboardController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'D:/turch/Documents/Cours IFA/4 - Framework PHP/eval-symphony-2/templates/dashboard/index.html.twig'|file_link(0) }}">templates/dashboard/index.html.twig</a></code></li>
-    </ul>
-</div>
+ <div class="row">
+                <div class="col-sm-6 col-lg-4">
+                  <div class="card">
+                    <div class="card-header bg-info content-center">
+                      <div class="c-icon c-icon-3xl text-white my-4">
+                        <i class="cil-face-dead"></i>
+                      </div>
+                    </div>
+                    <div class="card-body row text-center">
+                      <div class="col">
+                        <div class="text-value-xl">{{ totalVisitor }}</div>
+                        <div class="text-uppercase text-muted small">Total Visites</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.col-->
+                <div class="col-sm-6 col-lg-4">
+                  <div class="card">
+                    <div class="card-header bg-danger content-center">
+                      <div class="c-icon c-icon-3xl text-white my-4">
+                        <i class="cil-tags"></i>
+                      </div>
+                    </div>
+                    <div class="card-body row text-center">
+                      <div class="col">
+                        <div class="text-value-xl">{{ newTickets }}</div>
+                        <div class="text-uppercase text-muted small">Nouvelles Demandes</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.col-->
+                <div class="col-sm-6 col-lg-4">
+                  <div class="card">
+                    <div class="card-header bg-warning content-center">
+                      <div class="c-icon c-icon-3xl text-white my-4">
+                        <i class="cil-sync"></i>
+                      </div>
+                    </div>
+                    <div class="card-body row text-center">
+                      <div class="col">
+                        <div class="text-value-xl">{{ inProgressTickets }}</div>
+                        <div class="text-uppercase text-muted small">Tickets en cours</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.col-->
+              </div>
 {% endblock %}

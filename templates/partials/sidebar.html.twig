@@ -41,14 +41,22 @@
 					</svg>
 					Entreprise</a>
 			</li>
+			<li class="c-sidebar-nav-title">Tickets</li>
+			<li class="c-sidebar-nav-item">
+				<a class="c-sidebar-nav-link" href="{{ path('ticket_index') }}">
+					<svg class="c-sidebar-nav-icon">
+						<use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-drop"></use>
+					</svg>
+					Ticket</a>
+			</li>
 		{% endif %}
-		<li class="c-sidebar-nav-title">Tickets</li>
+		<li class="c-sidebar-nav-title">Demandes</li>
 		<li class="c-sidebar-nav-item">
-			<a class="c-sidebar-nav-link" href="{{ path('ticket_index') }}">
+			<a class="c-sidebar-nav-link" href="{{ path('demande_index') }}">
 				<svg class="c-sidebar-nav-icon">
 					<use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-drop"></use>
 				</svg>
-				Ticket</a>
+				Demande</a>
 		</li>
 	</ul>
 	<button class="c-sidebar-minimizer c-class-toggler" type="button" data-target="_parent" data-class="c-sidebar-minimized"></button>

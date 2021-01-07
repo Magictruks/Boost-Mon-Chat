@@ -28,7 +28,7 @@ class Ticket
     private $description;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=100, nullable=true)
      */
     private $status;
 
@@ -36,6 +36,16 @@ class Ticket
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="ticket")
      */
     private $user;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isDemande;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isOpen;
 
     public function getId(): ?int
     {
@@ -93,5 +103,29 @@ class Ticket
     public function __toString()
     {
         return $this->name;
+    }
+
+    public function getIsDemande(): ?bool
+    {
+        return $this->isDemande;
+    }
+
+    public function setIsDemande(bool $isDemande): self
+    {
+        $this->isDemande = $isDemande;
+
+        return $this;
+    }
+
+    public function getIsOpen(): ?bool
+    {
+        return $this->isOpen;
+    }
+
+    public function setIsOpen(bool $isOpen): self
+    {
+        $this->isOpen = $isOpen;
+
+        return $this;
     }
 }

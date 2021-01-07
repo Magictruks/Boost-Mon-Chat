@@ -35,12 +35,14 @@ class TicketController extends AbstractController
     {
         if($this->auth->isGranted('ROLE_ADMIN')) {
             return $this->render('ticket/index.html.twig', [
-                'tickets' => $ticketRepository->findAll(),
+                'controller_name' => 'Tickets',
+                'tickets' => $ticketRepository->findBy(['isDemande' => 0])
             ]);
         }
 
         return $this->render('ticket/archive.html.twig', [
             'tickets' => $ticketRepository->findBy(['user' => $this->getUser()]),
+            'controller_name' => 'Tickets',
         ]);
     }
 
@@ -52,6 +54,7 @@ class TicketController extends AbstractController
     {
         return $this->render('ticket/archive.html.twig', [
             'tickets' => $ticketRepository->findBy(['status' => 'archive']),
+            'controller_name' => 'Tickets',
         ]);
     }
 
@@ -66,7 +69,9 @@ class TicketController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            $ticket->setStatus('new');
+            // $ticket->setStatus(null);
+            $ticket->setIsOpen(0);
+            $ticket->setIsDemande(0);
             $ticket->setUser($this->getUser());
             $entityManager->persist($ticket);
             
@@ -79,6 +84,7 @@ class TicketController extends AbstractController
         return $this->render('ticket/new.html.twig', [
             'ticket' => $ticket,
             'form' => $form->createView(),
+            'controller_name' => 'ticket',
         ]);
     }
 
@@ -87,8 +93,10 @@ class TicketController extends AbstractController
      */
     public function show(Ticket $ticket): Response
     {
+        // dd($ticket);    
         return $this->render('ticket/show.html.twig', [
             'ticket' => $ticket,
+            'controller_name' => 'ticket',
         ]);
     }
 
@@ -110,6 +118,7 @@ class TicketController extends AbstractController
         return $this->render('ticket/edit.html.twig', [
             'ticket' => $ticket,
             'form' => $form->createView(),
+            'controller_name' => 'ticket',
         ]);
     }
 
