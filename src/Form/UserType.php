@@ -8,6 +8,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\CallbackTransformer;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 
 class UserType extends AbstractType
 {
@@ -33,19 +35,26 @@ class UserType extends AbstractType
                 'required' => true,
                 )
             )
-            ->add('password', null, array(
-                'label' => 'Password',
-                'attr' => ['class' => 'form-control', 'size' => 16]
-            ))
             ->add('customer', null, array(
                 'label' => 'Client',
                 'attr' => ['class' => 'form-control']
             ))
             ->add('status', null, array(
-                'label' => 'Status',
+                'label' => 'Status (active/désactive)',
                 'attr' => ['class' => 'form-check']
             ))
         ;
+
+        $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
+            $data = $event->getData();
+            $form = $event->getForm();
+            if(!$data->getId()){
+                $form->add('password', null, array(
+                    'label' => 'Password',
+                    'attr' => ['class' => 'form-control', 'size' => 16]
+                ));
+            }
+        });
 
         $builder->get('roles')
             ->addModelTransformer(new CallbackTransformer(
