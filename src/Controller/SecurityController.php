@@ -23,6 +23,14 @@ class SecurityController extends AbstractController
     }
 
     /**
+     * @Route("/", name="app_home")
+     */
+    public function home(AuthenticationUtils $authenticationUtils): Response
+    {
+        return new RedirectResponse($this->urlGenerator->generate('app_login'));
+    }
+
+    /**
      * @Route("/login", name="app_login")
      */
     public function login(AuthenticationUtils $authenticationUtils): Response
