@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DashboardController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+ <div class="row">
+                <div class="col-sm-6 col-lg-4">
+                  <div class="card">
+                    <div class="card-header bg-info content-center">
+                      <div class="c-icon c-icon-3xl text-white my-4">
+                        <i class="cil-face-dead"></i>
+                      </div>
+                    </div>
+                    <div class="card-body row text-center">
+                      <div class="col">
+                        <div class="text-value-xl">{{ totalVisitor }}</div>
+                        <div class="text-uppercase text-muted small">Total Visites</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.col-->
+                <div class="col-sm-6 col-lg-4">
+                  <div class="card">
+                    <div class="card-header bg-danger content-center">
+                      <div class="c-icon c-icon-3xl text-white my-4">
+                        <i class="cil-audio"></i>
+                      </div>
+                    </div>
+                    <div class="card-body row text-center">
+                      <div class="col">
+                        <div class="text-value-xl">{{ newTickets }}</div>
+                        <div class="text-uppercase text-muted small">Nouvelles Demandes</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.col-->
+                <div class="col-sm-6 col-lg-4">
+                  <div class="card">
+                    <div class="card-header bg-warning content-center">
+                      <div class="c-icon c-icon-3xl text-white my-4">
+                        <i class="cil-sync"></i>
+                      </div>
+                    </div>
+                    <div class="card-body row text-center">
+                      <div class="col">
+                        <div class="text-value-xl">{{ inProgressTickets }}</div>
+                        <div class="text-uppercase text-muted small">Demandes en cours</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                  <div class="card">
+                    <div class="card-header bg-success content-center">
+                      <div class="c-icon c-icon-3xl text-white my-4">
+                        <i class="cil-folder-open"></i>
+                      </div>
+                    </div>
+                    <div class="card-body row text-center">
+                      <div class="col">
+                        <div class="text-value-xl">{{ openTickets }}</div>
+                        <div class="text-uppercase text-muted small">Ticket ouvert</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                  <div class="card">
+                    <div class="card-header bg-primary content-center">
+                      <div class="c-icon c-icon-3xl text-white my-4">
+                        <i class="cil-https"></i>
+                      </div>
+                    </div>
+                    <div class="card-body row text-center">
+                      <div class="col">
+                        <div class="text-value-xl">{{ closeTickets }}</div>
+                        <div class="text-uppercase text-muted small">Ticket fermé</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.col-->
+              </div>
+{% endblock %}

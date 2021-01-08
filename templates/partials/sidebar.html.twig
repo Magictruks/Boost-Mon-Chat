@@ -1,0 +1,71 @@
+<div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
+	<div class="c-sidebar-brand d-lg-down-none">
+		<div class="c-sidebar-brand-full" width="118" height="46" alt="CoreUI Logo">
+			<img height="46" src="{{ asset('assets/nest.png')}}"></img>
+		<span class="font-weight-bold">
+			BoostMonChat
+		</span>
+	</div>
+	<div class="c-sidebar-brand-minimized" width="46" height="46" alt="CoreUI Logo">
+		<img height="46" src="{{ asset('assets/nest.png')}}"></img>
+</div></div><ul class="c-sidebar-nav">
+{% if app.user.roles[0] == 'ROLE_ADMIN' %}
+	<li class="c-sidebar-nav-item">
+		<a
+			class="c-sidebar-nav-link" href="{{ path('dashboard') }}">
+			{# <div class="c-sidebar-nav-icon">
+												<i class="cil-account-speedometer"></i><span> </span>
+											</div> #}
+			<div class="c-sidebar-nav-icon c-icon c-icon-l text-white my-4">
+				<i class="cil-speedometer"></i>
+			</div>
+			Dashboard
+		</a>
+	</li>
+{% endif %}
+{% if app.user.roles[0] == 'ROLE_ADMIN' %}
+	<li class="c-sidebar-nav-title">Admin</li>
+	<li class="c-sidebar-nav-item">
+		<a class="c-sidebar-nav-link" href="{{ path('user_index') }}">
+			<div class="c-sidebar-nav-icon c-icon c-icon-l text-white my-4">
+				<i class="cil-people"></i>
+			</div>
+			Utilisateur</a>
+	</li>
+	<li class="c-sidebar-nav-item">
+		<a class="c-sidebar-nav-link" href="{{ path('customer_index') }}">
+			<div class="c-sidebar-nav-icon c-icon c-icon-l text-white my-4">
+				<i class="cil-euro"></i>
+			</div>
+			Client</a>
+	</li>
+	<li class="c-sidebar-nav-item">
+		<a class="c-sidebar-nav-link" href="{{ path('company_index') }}">
+			<div class="c-sidebar-nav-icon c-icon c-icon-l text-white my-4">
+				<i class="cil-factory"></i>
+			</div>
+			Entreprise</a>
+	</li>
+	<li class="c-sidebar-nav-title">Tickets</li>
+	<li class="c-sidebar-nav-item">
+		<a class="c-sidebar-nav-link" href="{{ path('ticket_index') }}">
+			<div class="c-sidebar-nav-icon c-icon c-icon-l text-white my-4">
+				<i class="cil-tags"></i>
+			</div>
+			Ticket
+			{% if ticketOpen > 0 %}
+				<span class="badge badge-success">{{ ticketOpen }}</span>
+			{% endif %}
+		</a>
+	</li>
+{% endif %}
+<li class="c-sidebar-nav-title">Demandes</li>
+<li class="c-sidebar-nav-item">
+	<a class="c-sidebar-nav-link" href="{{ path('demande_index') }}">
+		<div class="c-sidebar-nav-icon c-icon c-icon-l text-white my-4">
+			<i class="cil-speech"></i>
+		</div>
+		Demande
+		<span class="badge badge-danger">{{ newDemande }}</span>
+	</a>
+</li></ul><button class="c-sidebar-minimizer c-class-toggler" type="button" data-target="_parent" data-class="c-sidebar-minimized"></button></div>

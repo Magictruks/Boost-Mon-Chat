@@ -1,0 +1,130 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ticket index
+{% endblock %}
+
+{% block body %}
+	<div class="card">
+		<div
+			class="card-header d-flex justify-content-between align-items-center">
+			{# <i class="fa fa-align-justify"></i> #}
+			<h1>Table
+				{{ controller_name }}</h1>
+			{% if app.user.roles[0] == 'ROLE_CLIENT' %}
+				<a href="{{ path('demande_new') }}">
+					<button type="button" class="btn btn-success">Envoyer une demande</button>
+				</a>
+			{% endif %}
+			{% if app.user.roles[0] == 'ROLE_ADMIN' and controller_name == 'Tickets' %}
+				<a href="{{ path('ticket_new') }}">
+					<button type="button" class="btn btn-success">Créer un ticket</button>
+				</a>
+			{% endif %}
+		</div>
+
+		<div class="card-body">
+			<table class="table table-bordered table-responsive-sm table-striped">
+				<thead>
+					<tr>
+						<th>Label</th>
+						<th>Description</th>
+						<th>Status</th>
+						<th>Auteur</th>
+						{% if app.user.roles[0] == 'ROLE_ADMIN'%}
+							<th>Action</th>
+						{% endif %}
+					</tr>
+				</thead>
+				<tbody>
+					{% for ticket in tickets %}
+						<tr>
+							<td>{{ ticket.label }}</td>
+							<td>{{ ticket.description }}</td>
+							<td>
+								{% if controller_name != 'Tickets' %}
+									{% if ticket.status == 'new' %}
+										<span class="badge badge-danger">Nouveau</span>
+									{% elseif ticket.status == 'in progress' %}
+										<span class="badge badge-warning">En cours</span>
+									{% elseif ticket.status == 'archive' and app.user.roles[0] == 'ROLE_ADMIN' %}
+										<span class="badge badge-info">Archivé</span>
+									{% else %}
+										<span class="badge badge-success">Terminé</span>
+									{% endif %}
+								{% endif %}
+
+								{% if app.user.roles[0] == 'ROLE_ADMIN' and controller_name == 'Tickets' %}
+									{% if ticket.isOpen %}
+										<span class="badge badge-success">Ouvert</span>
+									{% else %}
+										<span class="badge badge-danger">Fermé</span>
+									{% endif %}
+								{% endif %}
+								{# <span class="badge badge-danger">{{ ticket.status ? 'Yes' : 'No' }}</span> #}
+							</td>
+							<td>{{ ticket.user }}</td>
+							{% if app.user.roles[0] == 'ROLE_ADMIN'%}
+							{% if controller_name == 'Tickets' %}
+								<td>
+									<a href="{{ path('ticket_show', {id: ticket.id}) }}">
+										<i class="cil-zoom"></i>
+									</a>
+									<a href="{{ path('ticket_edit', {id: ticket.id}) }}">
+										<i class="cil-loop-circular"></i>
+									</a>
+								</td>
+								{% else %}
+								<td>
+									<a href="{{ path('demande_show', {id: ticket.id}) }}">
+										<i class="cil-zoom"></i>
+									</a>
+									<a href="{{ path('demande_edit', {id: ticket.id}) }}">
+										<i class="cil-loop-circular"></i>
+									</a>
+								</td>
+								{% endif %}
+							{% endif %}
+						</tr>
+					{% else %}
+						<tr>
+							<td colspan="5">no records found</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+	{# <h1>Ticket index</h1>
+							
+							    <table class="table">
+							        <thead>
+							            <tr>
+							                <th>Id</th>
+							                <th>Label</th>
+							                <th>Description</th>
+							                <th>Status</th>
+							                <th>actions</th>
+							            </tr>
+							        </thead>
+							        <tbody>
+							        {% for ticket in tickets %}
+							            <tr>
+							                <td>{{ ticket.id }}</td>
+							                <td>{{ ticket.label }}</td>
+							                <td>{{ ticket.description }}</td>
+							                <td>{{ ticket.status }}</td>
+							                <td>
+							                    <a href="{{ path('ticket_show', {'id': ticket.id}) }}">show</a>
+							                    <a href="{{ path('ticket_edit', {'id': ticket.id}) }}">edit</a>
+							                </td>
+							            </tr>
+							        {% else %}
+							            <tr>
+							                <td colspan="5">no records found</td>
+							            </tr>
+							        {% endfor %}
+							        </tbody>
+							    </table>
+							
+							    <a href="{{ path('ticket_new') }}">Create new</a> #}
+{% endblock %}
