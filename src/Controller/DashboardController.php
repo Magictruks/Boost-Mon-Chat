@@ -29,7 +29,6 @@ class DashboardController extends AbstractController
      */
     public function index(TicketRepository $ticketRepository): Response
     {
-
         if(!$this->auth->isGranted('ROLE_ADMIN')) {
             return new RedirectResponse($this->urlGenerator->generate('demande_index'));
         }
