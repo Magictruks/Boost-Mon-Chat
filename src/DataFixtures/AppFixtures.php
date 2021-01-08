@@ -30,16 +30,16 @@ class AppFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
-        $this->companyFixture($manager);
-        $this->customerFixture($manager);
-        $this->userFixture($manager);
-        $this->ticketFixture($manager);
+        $this->companyFixture($manager, 10);
+        $this->customerFixture($manager, 10);
+        $this->userFixture($manager, 10);
+        $this->ticketFixture($manager, 30);
     }
 
-    public function companyFixture($manager) {
+    public function companyFixture($manager, $nb) {
         $faker = Faker\Factory::create('fr_FR');
 
-        for ($i=0; $i < 10; $i++) { 
+        for ($i=0; $i < $nb; $i++) { 
             $company = new Company();
             $company->setName($faker->name);
             $manager->persist($company);
@@ -47,12 +47,12 @@ class AppFixtures extends Fixture
         $manager->flush();
     }
 
-    public function customerFixture($manager) {
+    public function customerFixture($manager, $nb) {
         $faker = Faker\Factory::create('fr_FR');
 
         $repo = $this->companyRepository->findAll();
 
-        for ($i=0; $i < 10; $i++) { 
+        for ($i=0; $i < $nb; $i++) { 
             $customer = new Customer();
             $customer->setName($faker->name);
             $customer->setCompany($repo[$faker->biasedNumberBetween($min = 0, $max = count($repo)-1, $function = 'sqrt')]);
@@ -63,7 +63,7 @@ class AppFixtures extends Fixture
         $manager->flush();
     }
 
-    public function userFixture($manager) {
+    public function userFixture($manager, $nb) {
         $faker = Faker\Factory::create('fr_FR');
 
         $user = new User();
@@ -77,7 +77,7 @@ class AppFixtures extends Fixture
         $user->setStatus(1);
         $manager->persist($user);
 
-        for ($i=0; $i < 10-1; $i++) { 
+        for ($i=1; $i < $nb; $i++) { 
             $user = new User();
             $user->setPassword($this->passwordEncoder->encodePassword(
                 $user,
@@ -92,14 +92,14 @@ class AppFixtures extends Fixture
         $manager->flush();
     }
 
-    public function ticketFixture($manager) {
+    public function ticketFixture($manager, $nb) {
         $faker = Faker\Factory::create('fr_FR');
 
         $status = 'archives';
 
         $repo = $this->userRepository->findAll();
 
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < $nb; $i++) {
             $ticket = new Ticket();
             $ticket->setLabel($faker->sentence($nbWords = 6, $variableNbWords = true));
             $ticket->setDescription($faker->text);

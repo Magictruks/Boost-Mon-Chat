@@ -44,6 +44,17 @@ class DemandeController extends AbstractController
     }
 
     /**
+     * @Route("/archive", name="demande_archive")
+     */
+    public function archive(TicketRepository $ticketRepository): Response
+    {
+        return $this->render('ticket/index.html.twig', [
+            'tickets' => $ticketRepository->findBy(['status' => 'archive']),
+            'controller_name' => 'Demandes Archive',
+        ]);
+    }
+
+    /**
      * @Route("/new", name="demande_new")
      */
     public function new(Request $request): Response
@@ -105,4 +116,6 @@ class DemandeController extends AbstractController
             'controller_name' => 'Demandes',
         ]);
     }
+
+    
 }
