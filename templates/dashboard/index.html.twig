@@ -1,91 +1,180 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello DashboardController!{% endblock %}
+{% block title %}Hello DashboardController!
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+	</style>
 
- <div class="row">
-                <div class="col-sm-6 col-lg-4">
-                  <div class="card">
-                    <div class="card-header bg-info content-center">
-                      <div class="c-icon c-icon-3xl text-white my-4">
-                        <i class="cil-face-dead"></i>
-                      </div>
-                    </div>
-                    <div class="card-body row text-center">
-                      <div class="col">
-                        <div class="text-value-xl">{{ totalVisitor }}</div>
-                        <div class="text-uppercase text-muted small">Total Visites</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- /.col-->
-                <div class="col-sm-6 col-lg-4">
-                  <div class="card">
-                    <div class="card-header bg-danger content-center">
-                      <div class="c-icon c-icon-3xl text-white my-4">
-                        <i class="cil-audio"></i>
-                      </div>
-                    </div>
-                    <div class="card-body row text-center">
-                      <div class="col">
-                        <div class="text-value-xl">{{ newTickets }}</div>
-                        <div class="text-uppercase text-muted small">Nouvelles Demandes</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- /.col-->
-                <div class="col-sm-6 col-lg-4">
-                  <div class="card">
-                    <div class="card-header bg-warning content-center">
-                      <div class="c-icon c-icon-3xl text-white my-4">
-                        <i class="cil-sync"></i>
-                      </div>
-                    </div>
-                    <div class="card-body row text-center">
-                      <div class="col">
-                        <div class="text-value-xl">{{ inProgressTickets }}</div>
-                        <div class="text-uppercase text-muted small">Demandes en cours</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-lg-4">
-                  <div class="card">
-                    <div class="card-header bg-success content-center">
-                      <div class="c-icon c-icon-3xl text-white my-4">
-                        <i class="cil-folder-open"></i>
-                      </div>
-                    </div>
-                    <div class="card-body row text-center">
-                      <div class="col">
-                        <div class="text-value-xl">{{ openTickets }}</div>
-                        <div class="text-uppercase text-muted small">Ticket ouvert</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-lg-4">
-                  <div class="card">
-                    <div class="card-header bg-primary content-center">
-                      <div class="c-icon c-icon-3xl text-white my-4">
-                        <i class="cil-https"></i>
-                      </div>
-                    </div>
-                    <div class="card-body row text-center">
-                      <div class="col">
-                        <div class="text-value-xl">{{ closeTickets }}</div>
-                        <div class="text-uppercase text-muted small">Ticket fermé</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- /.col-->
-              </div>
-{% endblock %}
+	<div class="row">
+		<div class="col-sm-6 col-lg-4">
+			<div class="card">
+				<div class="card-header bg-info content-center">
+					<div class="c-icon c-icon-3xl text-white my-4">
+						<i class="cil-face-dead"></i>
+					</div>
+				</div>
+				<div class="card-body row text-center">
+					<div class="col">
+						<div class="text-value-xl">{{ totalVisitor }}</div>
+						<div class="text-uppercase text-muted small">Total Visites</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.col-->
+		<div class="col-sm-6 col-lg-4">
+			<div class="card">
+				<div class="card-header bg-danger content-center">
+					<div class="c-icon c-icon-3xl text-white my-4">
+						<i class="cil-audio"></i>
+					</div>
+				</div>
+				<div class="card-body row text-center">
+					<div class="col">
+						<div class="text-value-xl">{{ newTickets }}</div>
+						<div class="text-uppercase text-muted small">Nouvelles Demandes</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.col-->
+		<div class="col-sm-6 col-lg-4">
+			<div class="card">
+				<div class="card-header bg-warning content-center">
+					<div class="c-icon c-icon-3xl text-white my-4">
+						<i class="cil-sync"></i>
+					</div>
+				</div>
+				<div class="card-body row text-center">
+					<div class="col">
+						<div class="text-value-xl">{{ inProgressTickets }}</div>
+						<div class="text-uppercase text-muted small">Demandes en cours</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-lg-4">
+			<div class="card">
+				<div class="card-header bg-success content-center">
+					<div class="c-icon c-icon-3xl text-white my-4">
+						<i class="cil-folder-open"></i>
+					</div>
+				</div>
+				<div class="card-body row text-center">
+					<div class="col">
+						<div class="text-value-xl">{{ openTickets }}</div>
+						<div class="text-uppercase text-muted small">Ticket ouvert</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-lg-4">
+			<div class="card">
+				<div class="card-header bg-primary content-center">
+					<div class="c-icon c-icon-3xl text-white my-4">
+						<i class="cil-https"></i>
+					</div>
+				</div>
+				<div class="card-body row text-center">
+					<div class="col">
+						<div class="text-value-xl">{{ closeTickets }}</div>
+						<div class="text-uppercase text-muted small">Ticket fermé</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.col-->
+	</div>
+	<div class="card">
+		<div
+			class="card-header d-flex justify-content-between align-items-center">
+			{# <i class="fa fa-align-justify"></i> #}
+			<h1>Les 10 dernières nouvelles demandes</h1>
+			<div class="card-body">
+				<table class="table table-bordered table-responsive-sm table-striped">
+					<thead>
+						<tr>
+							<th>Label</th>
+							<th>Description</th>
+							<th>Status</th>
+							<th>Auteur</th>
+							{% if app.user.roles[0] == 'ROLE_ADMIN'%}
+								<th>Action</th>
+							{% endif %}
+						</tr>
+					</thead>
+					<tbody>
+						{% for ticket in tickets %}
+							<tr>
+								<td>{{ ticket.label }}</td>
+								<td>{{ ticket.description }}</td>
+								<td>
+									{% if controller_name != 'Tickets' %}
+										{% if ticket.status == 'new' %}
+											<span class="badge badge-danger">Nouveau</span>
+										{% elseif ticket.status == 'in progress' %}
+											<span class="badge badge-warning">En cours</span>
+										{% elseif ticket.status == 'archive' and app.user.roles[0] == 'ROLE_ADMIN' %}
+											<span class="badge badge-info">Archivé</span>
+										{% else %}
+											<span class="badge badge-success">Terminé</span>
+										{% endif %}
+									{% endif %}
+
+									{% if app.user.roles[0] == 'ROLE_ADMIN' and controller_name == 'Tickets' %}
+										{% if ticket.isOpen %}
+											<span class="badge badge-success">Ouvert</span>
+										{% else %}
+											<span class="badge badge-danger">Fermé</span>
+										{% endif %}
+									{% endif %}
+									{# <span class="badge badge-danger">{{ ticket.status ? 'Yes' : 'No' }}</span> #}
+								</td>
+								<td>{{ ticket.user }}</td>
+								{% if app.user.roles[0] == 'ROLE_ADMIN'%}
+									{% if controller_name == 'Tickets' %}
+										<td>
+											<a href="{{ path('ticket_show', {id: ticket.id}) }}">
+												<i class="cil-zoom"></i>
+											</a>
+											<a href="{{ path('ticket_edit', {id: ticket.id}) }}">
+												<i class="cil-loop-circular"></i>
+											</a>
+										</td>
+									{% else %}
+										<td>
+											<a href="{{ path('demande_show', {id: ticket.id}) }}">
+												<i class="cil-zoom"></i>
+											</a>
+											<a href="{{ path('demande_edit', {id: ticket.id}) }}">
+												<i class="cil-loop-circular"></i>
+											</a>
+										</td>
+									{% endif %}
+								{% endif %}
+							</tr>
+						{% else %}
+							<tr>
+								<td colspan="5">no records found</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+				{% if app.user.roles[0] == 'ROLE_ADMIN' and controller_name != 'Tickets' and controller_name == 'Demandes Archive' %}
+					<a class="btn btn-primary mt-1" href="{{ path('demande_index') }}">Retour</a>
+				{% endif %}
+			</div>
+		</div>
+	{% endblock %}

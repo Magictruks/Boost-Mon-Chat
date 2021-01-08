@@ -7,9 +7,10 @@
 
 	<div class="card">
 		<div class="card-header d-flex justify-content-between align-items-center">
-			<h1>Détails de l'utilisateur {{ user.id }}</h1>
-            {{ include('user/_delete_form.html.twig') }}
-        </div>
+			<h1>Détails de l'utilisateur
+				{{ user.id }}</h1>
+			{{ include('user/_delete_form.html.twig') }}
+		</div>
 		<div class="card-body">
 			<form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
 				<div class="form-group row">
@@ -21,7 +22,16 @@
 				<div class="form-group row">
 					<h4 class="col-md-3 col-form-label">Roles</h4>
 					<div class="col-md-9">
-						<p class="form-control-static">{{ user.roles ? user.roles|json_encode : '' }}</p>
+						{% for role in user.roles %}
+							{% if role == 'ROLE_ADMIN'%}
+								<span class="badge badge-danger">{{ role }}</span>
+							{% elseif role == 'ROLE_CLIENT' %}
+								<span class="badge badge-primary">{{ role }}</span>
+							{% else %}
+								<span class="badge badge-info">{{ role }}</span>
+							{% endif %}
+						{% endfor %}
+
 					</div>
 				</div>
 			</form>
@@ -30,37 +40,37 @@
 
 
 	{# <h1>User</h1>
-											
-											    <table class="table">
-											        <tbody>
-											            <tr>
-											                <th>Id</th>
-											                <td>{{ user.id }}</td>
-											            </tr>
-											            <tr>
-											                <th>Email</th>
-											                <td>{{ user.email }}</td>
-											            </tr>
-											            <tr>
-											                <th>Roles</th>
-											                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-											            </tr>
-											            <tr>
-											                <th>Password</th>
-											                <td>{{ user.password }}</td>
-											            </tr>
-											        </tbody>
-											    </table>
-											
-											    <a href="{{ path('user_index') }}">back to list</a>
-											
-											    <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a> #}
+												
+												    <table class="table">
+												        <tbody>
+												            <tr>
+												                <th>Id</th>
+												                <td>{{ user.id }}</td>
+												            </tr>
+												            <tr>
+												                <th>Email</th>
+												                <td>{{ user.email }}</td>
+												            </tr>
+												            <tr>
+												                <th>Roles</th>
+												                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+												            </tr>
+												            <tr>
+												                <th>Password</th>
+												                <td>{{ user.password }}</td>
+												            </tr>
+												        </tbody>
+												    </table>
+												
+												    <a href="{{ path('user_index') }}">back to list</a>
+												
+												    <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a> #}
 	{# <button class="btn btn-primary"> #}
-		<a class="btn btn-primary text-light" href="{{ path('user_index') }}">Retour</a>
+	<a class="btn btn-primary text-light" href="{{ path('user_index') }}">Retour</a>
 	{# </button> #}
 
 	{# <button class="btn btn-success"> #}
-		<a class="btn btn-success text-light" href="{{ path('user_edit', {'id': user.id}) }}">Modifier</a>
+	<a class="btn btn-success text-light" href="{{ path('user_edit', {'id': user.id}) }}">Modifier</a>
 	{# </button> #}
 
 {% endblock %}

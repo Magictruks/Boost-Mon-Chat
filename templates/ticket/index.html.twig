@@ -15,6 +15,11 @@
 					<button type="button" class="btn btn-success">Envoyer une demande</button>
 				</a>
 			{% endif %}
+			{% if app.user.roles[0] == 'ROLE_ADMIN' and controller_name != 'Tickets' and controller_name != 'Demandes Archive' %}
+				<a href="{{ path('demande_archive') }}">
+					<button type="button" class="btn btn-info">Voir archive</button>
+				</a>
+			{% endif %}
 			{% if app.user.roles[0] == 'ROLE_ADMIN' and controller_name == 'Tickets' %}
 				<a href="{{ path('ticket_new') }}">
 					<button type="button" class="btn btn-success">Créer un ticket</button>
@@ -64,24 +69,24 @@
 							</td>
 							<td>{{ ticket.user }}</td>
 							{% if app.user.roles[0] == 'ROLE_ADMIN'%}
-							{% if controller_name == 'Tickets' %}
-								<td>
-									<a href="{{ path('ticket_show', {id: ticket.id}) }}">
-										<i class="cil-zoom"></i>
-									</a>
-									<a href="{{ path('ticket_edit', {id: ticket.id}) }}">
-										<i class="cil-loop-circular"></i>
-									</a>
-								</td>
+								{% if controller_name == 'Tickets' %}
+									<td>
+										<a href="{{ path('ticket_show', {id: ticket.id}) }}">
+											<i class="cil-zoom"></i>
+										</a>
+										<a href="{{ path('ticket_edit', {id: ticket.id}) }}">
+											<i class="cil-loop-circular"></i>
+										</a>
+									</td>
 								{% else %}
-								<td>
-									<a href="{{ path('demande_show', {id: ticket.id}) }}">
-										<i class="cil-zoom"></i>
-									</a>
-									<a href="{{ path('demande_edit', {id: ticket.id}) }}">
-										<i class="cil-loop-circular"></i>
-									</a>
-								</td>
+									<td>
+										<a href="{{ path('demande_show', {id: ticket.id}) }}">
+											<i class="cil-zoom"></i>
+										</a>
+										<a href="{{ path('demande_edit', {id: ticket.id}) }}">
+											<i class="cil-loop-circular"></i>
+										</a>
+									</td>
 								{% endif %}
 							{% endif %}
 						</tr>
@@ -92,39 +97,9 @@
 					{% endfor %}
 				</tbody>
 			</table>
+			{% if app.user.roles[0] == 'ROLE_ADMIN' and controller_name != 'Tickets' and controller_name == 'Demandes Archive' %}
+				<a class="btn btn-primary mt-1" href="{{ path('demande_index') }}">Retour</a>
+			{% endif %}
 		</div>
 	</div>
-	{# <h1>Ticket index</h1>
-							
-							    <table class="table">
-							        <thead>
-							            <tr>
-							                <th>Id</th>
-							                <th>Label</th>
-							                <th>Description</th>
-							                <th>Status</th>
-							                <th>actions</th>
-							            </tr>
-							        </thead>
-							        <tbody>
-							        {% for ticket in tickets %}
-							            <tr>
-							                <td>{{ ticket.id }}</td>
-							                <td>{{ ticket.label }}</td>
-							                <td>{{ ticket.description }}</td>
-							                <td>{{ ticket.status }}</td>
-							                <td>
-							                    <a href="{{ path('ticket_show', {'id': ticket.id}) }}">show</a>
-							                    <a href="{{ path('ticket_edit', {'id': ticket.id}) }}">edit</a>
-							                </td>
-							            </tr>
-							        {% else %}
-							            <tr>
-							                <td colspan="5">no records found</td>
-							            </tr>
-							        {% endfor %}
-							        </tbody>
-							    </table>
-							
-							    <a href="{{ path('ticket_new') }}">Create new</a> #}
 {% endblock %}

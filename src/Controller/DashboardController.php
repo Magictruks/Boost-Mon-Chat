@@ -56,6 +56,7 @@ class DashboardController extends AbstractController
             'openTickets' => $ticketRepository->count(['isOpen' => 1 ]),
             'closeTickets' => $ticketRepository->count(['isOpen' => 0 ]),
             'totalVisitor' => $visitors,
+            'tickets' => $ticketRepository->findBy(['status' => 'new']),
         ]);
     }
 
