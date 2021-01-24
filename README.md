@@ -60,8 +60,6 @@
 
 ## Get Started
 
-### Prerequisites
-
 ### Installation
    Installation dependencies
   
@@ -90,6 +88,53 @@
   symfony serve
   ```
 ## Usage
+
+### Login
+
+Pour vous connecter en tant qu'administrateur, vous pouvez utiliser les identifiants ci :
+login : admin@admin.com
+mdp: azerty
+
+### Dashboard
+
+Vous pouvez voir ici quelques stats : 
+- le nombre d'utilisateur qui sont venu sur votre site
+- le nombre de nouvelles demande
+- le nombre de demandes en cours
+- le nombre de tickets ouvert
+- le nombre de tickets fermé
+- le 10 dernières demandes
+
+### Admin
+
+Vous pouvez agir sur les 3 entitées principales qui sont :
+- Utilisateur
+- Client
+- Entreprise
+
+Vous pouvez executer ces actions sur n'importe quelle entité :
+- Ajouter
+- Modifier
+- Supprimer
+- Afficher
+
+### Demande
+
+Partie accessible par l'administrateur et l'utilisateur.
+
+L'utilisateur ne verra que ses propres demande et pour ajouter une demande.
+
+L'administrateur pourra voir toutes ses demandes et pourra faire n'importe quel action dessus. Il pourra aussi changer le status de la demande en fonction de son avancé.
+
+Une demande possède 4 status :
+- Nouvelle
+- En cours
+- Terminé
+- Archivé
+
+Un petit badge à coté du menu Demande indique le nombre de nouvelles demandes.
+
+### Ticket
 
 ## Contact
 
