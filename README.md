@@ -1,6 +1,68 @@
-# eval-symfony-2
+# BootsMonChat
+
+<p align="center">
+  <!-- <a href="https://github.com/othneildrew/Best-README-Template">
+    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  </a> -->
+
+  <h3 align="center">BootsMonChat</h3>
+
+  <p align="center">
+    Evaluation Symfony Janvier 2021 - IFA Metz
+    <!-- <br />
+    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    ·
+    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+  </p> -->
+</p>
+
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#preambule">Preambule</a></li>
+         <li><a href="#feature">Feature</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#usage">Usage</a>
+      <ul>
+<!--         <li><a href="#new-project">New Project</a></li>
+        <li><a href="#initialisation-database">Initialisation Database</a></li>
+        <li><a href="#create-entity">Create Entity</a></li>
+        <li><a href="#create-file-entity-for-upload-file">Create File Entity for Upload File</a></li>
+        <li><a href="#create-auth-+-jwt">Create Auth + JWT</a></li> -->
+      </ul>
+    </li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
+
+## About The Project
+
+### Preambule
+
+### Feature
 
 ## Get Started
+
+### Prerequisites
+
+### Installation
    Installation dependencies
   
   ```shell
@@ -27,6 +89,14 @@
   ```shell
   symfony serve
   ```
+## Usage
+
+## Contact
+
+Turchini Axel - [Linkedin](www.linkedin.com/in/axelturchini) - turchini.axel@gmail.com
+
+Project Link: [https://github.com/Magictruks/auto_nodejs](https://github.com/Magictruks/auto_nodejs)
+
 
 Précision :
 
