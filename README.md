@@ -34,21 +34,21 @@
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
     <li>
       <a href="#usage">Usage</a>
       <ul>
-<!--         <li><a href="#new-project">New Project</a></li>
-        <li><a href="#initialisation-database">Initialisation Database</a></li>
-        <li><a href="#create-entity">Create Entity</a></li>
-        <li><a href="#create-file-entity-for-upload-file">Create File Entity for Upload File</a></li>
-        <li><a href="#create-auth-+-jwt">Create Auth + JWT</a></li> -->
+        <li><a href="#login">Login</a></li>
+        <li><a href="#dashboard">Dashboard</a></li>
+        <li><a href="#admin">Admin</a></li>
+        <li><a href="#demande">Demande</a></li>
+        <li><a href="#ticket">Ticket</a></li>
       </ul>
     </li>
     <li><a href="#contact">Contact</a></li>
+    <li><a href="#annexes">Annexes</a></li>
   </ol>
 </details>
 
