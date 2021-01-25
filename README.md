@@ -8,7 +8,7 @@
   <h3 align="center">BootsMonChat</h3>
 
   <p align="center">
-    Evaluation Symfony Janvier 2021 - IFA Metz
+    Mini CRM - Evaluation Symfony Janvier 2021 - IFA Metz
     <!-- <br />
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br />
