@@ -56,6 +56,19 @@
 
 ### Preambule
 
+BoostMonChat est le nom d'une entreprise fictive créée dans le cadre d'un examen lors de mon parcours pour l'obtention de mon diplôme Developper Fullstack. La difficulté de l'exercice était la durée de 4 jours pour réaliser un panel de gestion de demande client. N'ayant pas fait de Symfony depuis un bon moment, j'ai fais de mon mieux pour relever le challenge et ajouter un maximum de fonctionnalité.
+
+Le concept de cette interface est simple. Un auto-entrepreneur veut pouvoir centralisé les demandes des ses client et établir un suivi de celle-ci. Pour ce faire, il décide de créer une interface lui permettant de :
+
+- répertorier ses clients
+- répertorier les entreprises de ses clients
+- inscrire des utilisateurs qui seront des comptes pour ses clients
+- répertorier les demandes émisent par ses utilisateurs (client ayant un compte)
+- établir un suivi de la demande du client qui sera visible par le client
+- créer des tickets qui serviront uniquement à l'auto entrepreneur pour pouvoir s'organiser dans son travail
+
+Ainsi, le client ayant un compte utilisateur pour se connecter sur le panel et y poster une demande. Une fois la demande pris en charge par l'auto entrepreneur, son status passera à "en cours" et l'auto entrepreneur créera des tickets comme un sorte de TODO list. Une fois la demande terminé, le status de la demande changera et le client pourra constater que sa demande est bien terminé.
+
 ### Feature
 
 ## Get Started
@@ -107,6 +120,8 @@ Vous pouvez voir ici quelques stats :
 
 ### Admin
 
+Partie accessible par l'administrateur.
+
 Vous pouvez agir sur les 3 entitées principales qui sont :
 - Utilisateur
 - Client
@@ -135,6 +150,18 @@ Une demande possède 4 status :
 Un petit badge à coté du menu Demande indique le nombre de nouvelles demandes.
 
 ### Ticket
+
+Partie accessible par l'administrateur.
+
+L'administrateur pourra voir tous les tickets qu'il a créer. Ainsi, il pourra facilement voir le status du ticket, le mettre à jour, et l'archivé. Il pourra :
+
+- Créer un ticket
+- Modifier un ticket
+- Mettre à jour le status du ticket
+- Supprimer le ticket
+- Voir tous les tickets
+
+Un petit badge à coté du menu Demande indique le nombre de tickets ouvert.
 
 ## Contact
 
