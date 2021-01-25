@@ -57,7 +57,7 @@
 #### Dashboard - Home
 
 <a href="https://github.com/Magictruks/boost-mon-chat">
-  <img src="public/assets/panel.PNG" alt="panel" width="1024px" height="512px">
+  <img src="public/assets/panel.PNG" alt="panel" width="800px" height="400px">
 </a>
 
 ### Preambule
