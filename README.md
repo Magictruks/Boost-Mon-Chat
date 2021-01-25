@@ -1,9 +1,9 @@
 # BootsMonChat
 
 <p align="center">
-  <!-- <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a> -->
+  <a href="https://github.com/Magictruks/boost-mon-chat">
+    <img src="public/assets/boostchat.png" alt="Logo" width="200" height="200" style="border-radius: 50px;">
+  </a>
 
   <h3 align="center">BootsMonChat</h3>
 
