@@ -67,9 +67,34 @@ Le concept de cette interface est simple. Un auto-entrepreneur veut pouvoir cent
 - établir un suivi de la demande du client qui sera visible par le client
 - créer des tickets qui serviront uniquement à l'auto entrepreneur pour pouvoir s'organiser dans son travail
 
-Ainsi, le client ayant un compte utilisateur pour se connecter sur le panel et y poster une demande. Une fois la demande pris en charge par l'auto entrepreneur, son status passera à "en cours" et l'auto entrepreneur créera des tickets comme un sorte de TODO list. Une fois la demande terminé, le status de la demande changera et le client pourra constater que sa demande est bien terminé.
+Ainsi, le client ayant un compte utilisateur pour se connecter sur le panel et y poster une demande. L'auto entrepreneur recevra un mail pour l'avertir d'une nouvelle demande. Une fois la demande pris en charge par l'auto entrepreneur, son status passera à "en cours" et l'auto entrepreneur créera des tickets comme un sorte de TODO list. Une fois la demande terminé, le status de la demande changera et le client pourra constater que sa demande est bien terminé.
 
 ### Feature
+
+Voici la liste de toute les fonctionnalitées de l'application :
+
+- Système d'authentification avec role (ADMIN, CLIENT, USER)
+- Système d'activation ou désactivation d'un utilisateur
+
+#### User
+
+- Accés à la création de demande
+- Envoi d'un email automatique à la création d'une demande
+- Voir ses propres demande et leurs status
+
+#### Administrateur
+
+- Visualisation de statistiques sur le dashboard
+- Visualisation des dernières demandes reçu sur le dashboard
+- Gestion des utilisateurs (création, modification, suppression, affichage)
+- Activation ou désactivation de l'accès au panel par un utilisateur
+- Gestion des rôles
+- Gestion des clients (création, modification, suppression, affichage)
+- Gestion des entreprises (création, modification, suppression, affichage)
+- Gestion des tickets (création, modification, suppression, affichage)
+- Possibilité de modifier le status des tickets
+- Accès aux tickets archivé
+- Gestion des demandes (création, modification, affichage)
 
 ## Get Started
 
