@@ -70,10 +70,21 @@ class AppFixtures extends Fixture
         // Admin
         $user->setPassword($this->passwordEncoder->encodePassword(
             $user,
-            'azerty'
+            'admin'
         ));
         $user->setRoles(["ROLE_ADMIN"]);
         $user->setEmail('admin@admin.com');
+        $user->setStatus(1);
+        $manager->persist($user);
+
+        $user = new User();
+        // Admin
+        $user->setPassword($this->passwordEncoder->encodePassword(
+            $user,
+            'user'
+        ));
+        $user->setRoles(["ROLE_USER"]);
+        $user->setEmail('user@user.com');
         $user->setStatus(1);
         $manager->persist($user);
 
